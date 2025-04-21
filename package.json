@@ -1,0 +1,31 @@
+{
+  "name": "luxelane",
+  "version": "6.8.0",
+  "private": true,
+  "author": "RedQ",
+  "workspaces": [
+    "admin/*",
+    "shop"
+  ],
+  "scripts": {
+    "clean": "yarn workspaces run rimraf \"{.next,node_modules}\" && rimraf node_modules",
+    "dev:shop-rest": "yarn workspace @luxelane/shop dev",
+    "build:shop-rest": "yarn workspace @luxelane/shop build",
+    "start:shop-rest": "yarn workspace @luxelane/shop start",
+    "dev:admin-rest": "yarn workspace @luxelane/admin-rest dev",
+    "build:admin-rest": "yarn workspace @luxelane/admin-rest build",
+    "start:admin-rest": "yarn workspace @luxelane/admin-rest start",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,md,css}": [
+      "prettier --trailing-comma es5 --write"
+    ]
+  }
+}
